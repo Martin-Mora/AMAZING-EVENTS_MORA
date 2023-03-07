@@ -5,6 +5,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body{
+  background-image: url('../Img/background.jpg');
+  background-size: cover;
+}
+
 :root{
   --main-bg-color:#F7EFE5;
   --secondary-bg-color:#333;
@@ -15,21 +20,20 @@ html {
   position: relative;
 }
 
+
 .title{
-  padding-top: 20px;
+  margin-top: 50px;
   text-decoration: underline;
+  text-shadow: 3px 3px 3px #781005;
+  color: rgb(217, 5, 106);
 }
 
 
 /* nav */
 
-nav{
-  background-color: var(--main-bg-color);
-}
 
 .img-logo{
   width: 200px;
-  
 }
 
 
@@ -83,8 +87,24 @@ nav{
 
 .carousel-img3{
   height: 100%;
-  background-image: url("../Img/carousel3.jpeg");
+  background-image: url("../Img/carousel3.jpg");
   background-position-y: 20%;
+  background-size: cover;
+  width: 100%;
+}
+
+.carousel-img4{
+  height: 100%;
+  background-image: url("../Img/carousel4.jpg");
+  background-position-y: 80%;
+  background-size: cover;
+  width: 100%;
+}
+
+.carousel-img5{
+  height: 100%;
+  background-image: url("../Img/carousel5.jpg");
+  background-position-y: 80%;
   background-size: cover;
   width: 100%;
 }
@@ -100,6 +120,16 @@ nav{
 @media (min-width:768px) {
   .carousel-inner{
     height: 50vh;
+  }
+
+  .carousel-img3{
+    background-position-y: 70%;
+  }
+}
+
+@media (max-width:992px){
+  .carousel-img5{
+    background-position-x: 80%;
   }
 }
 
@@ -158,7 +188,7 @@ nav{
     height: 20vh;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
   }
 
@@ -180,7 +210,8 @@ nav{
   }
 
   .category__check label{
-    margin:0 1.5rem ;
+    margin:0 1rem;
+    
   }
   
 }
@@ -188,10 +219,12 @@ nav{
 @media (min-width:1440px){
   .category{
     padding: 0 5rem;
+    
   }
 
   .category__check{
     font-size: 1.2rem;
+    
   }
 
 }
@@ -203,7 +236,7 @@ nav{
 .container-cards{
   display: flex;
   flex-direction: column;
-  margin: 100px auto;
+  margin: 50px 0px 100px auto;
 }
 
 .card{
@@ -232,13 +265,20 @@ nav{
   justify-content: space-around;
 }
 
-@media (min-width:1024px) {
+
+@media (min-width:768px) {
   .container-cards{
     flex-direction: row;
     flex-wrap: wrap;
   }
 
 
+}
+
+@media (min-width:1441px){
+  .card{
+    margin: 2rem 4rem;
+  }
 }
 
 
@@ -253,18 +293,11 @@ form{
   max-width: 400px;
   margin:120px auto;
   padding: 3rem 3rem;
-  
-  
 }
 
-.title_contact{
-  text-align: center;
-  margin-top: 50px;
-}
 
 form h5{
   font-weight: 700;  
-  
 }
 
 form label{
@@ -322,7 +355,7 @@ form textarea{
 /* detaills */
 
 .card-container{
-  margin-top: 80px ;
+  margin: 100px auto;
   border: 2px solid #333;
   width: 90%;
   max-width: 400px;
@@ -348,7 +381,6 @@ form textarea{
     height: 400px;
     max-width: 800px;
     flex-wrap: nowrap;
-    margin-top: 130px;
     justify-content: center;
     align-items: center;
   }
@@ -364,10 +396,11 @@ form textarea{
   
 }
 
-@media (min-width:1024px){
+@media (min-width:992px){
   .card-container{
     max-width: 900px;
     height: 600px;
+    margin: 100px auto; 
   }
 
   .card-container__card,.card-container__detaills{
@@ -379,8 +412,7 @@ form textarea{
 @media (min-width:1440px){
   .card-container{
     max-width: 1200px;
-    height: 600px;
-    margin:70px auto;
+    margin: 120px auto; 
   }
 
   .card-container__card,.card-container__detaills{
@@ -395,9 +427,13 @@ form textarea{
 table{
   border: 2px solid black;
   width: 90%;
-  margin: 80px auto;
+  margin: 100px auto;
   text-align: center;
   background-color: var(--main-bg-color);
+}
+
+table:last-child{
+  margin-bottom: 150px;
 }
 
 table thead{
