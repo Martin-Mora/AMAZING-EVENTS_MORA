@@ -30,6 +30,9 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav lista">
+            <li class="nav-item closed_button">
+              <i class="bi bi-x"></i>
+            </li>
             <li class="nav-item">
               <a class="nav-link link-home" href="./index.html">HOME</a>
             </li>
@@ -40,7 +43,7 @@
               <a class="nav-link" href="./past_events.html">PAST EVENTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT</a>
+              <a class="nav-link activate" href="#">CONTACT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./stats.html">STATS</a>
@@ -52,6 +55,12 @@
   </header>
 
   <main>
+
+    <!-- modal -->
+    <div class="modal-background">
+  
+    </div>
+    
     <!-- Carousel -->
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -76,43 +85,45 @@
       </button>
     </div>
 
+    <div class="main-conteiner">
+      <!-- form -->
 
-    <!-- form -->
+      <h1 class="text-center title">CONTACT</h1>
 
-    <h1 class="text-center title">CONTACT</h1>
-
-    <form class="contact-form">
-      <h5>Name:</h5>
-      <label>
-        <input type="text" name="name">
-      </label>
-      <h5>Email:</h5>
-      <label>
-        <input type="email" name="email">
-      </label>
-      <h5>Mensagge:</h5>
-      <label>
-        <textarea name="mensagge" placeholder="Write here.."></textarea>
-      </label>
-      <input class="btn btn-primary" type="submit" value="submit" >
-    </form>
-
-  
+      <form class="contact-form">
+        <label>
+          <h5>Name:</h5>
+          <input type="text" name="name">
+        </label>
+        <label>
+          <h5>Email:</h5>
+          <input type="email" name="email">
+        </label>
+        <label>
+          <h5>Mensagge:</h5>
+          <textarea name="mensagge" placeholder="Write here.."></textarea>
+        </label>
+        <input class="btn btn-primary" type="submit" value="submit" >
+      </form>
+    </div>
   
 
   </main>
   
   <footer>
     <div class="social">
-      <a href="https://www.instagram.com" target="_blank"><img src="./Img/instagram.svg" class="social__red" alt="Amazing-instagram"></a>
-      <a href="https://www.facebook.com" target="_blank"><img src="./Img/facebook.svg" class="social__red" alt="Amazing-facebook"></a>
-      <a href="https://web.whatsapp.com" target="_blank"><img src="./Img/whatsapp.svg" class="social__red" alt="Amazing-whatsapp"></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram social__red"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook social__red"></i></a>
+      <a href="https://web.whatsapp.com" target="_blank"><i class="bi bi-whatsapp social__red"></i></a>
     </div>
     <div class="logo-footer">
       <h3>Cohort-14</h3>
     </div>
   </footer>
-  
+
+ <!-- nav modal js -->
+ <script src="./js/nav_modal.js"></script>  
+
   <!-- cdn js bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

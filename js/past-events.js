@@ -6,14 +6,57 @@ const input = document.querySelector('.space-search');
 
 const containerChecks = document.querySelector('.category__check');
 
+
+//de manera local
+// const url= "amazing.json";
+
+//de manera online
+const url2= "https://mindhub-xj03.onrender.com/api/amazing"
+
+
+//Accediendo a la api
+async function getDatas(){
+  try{
+    //usando de manera local
+    // const response= await fetch(url);
+
+       //usando de manera online
+      const response= await fetch(url2);
+    
+      const data= await response.json();
+    
+    renderCardsPast(data.events,containerCards,data.currentDate);
+
+    renderChecks(data.events,containerChecks);
+
+    filterChecks(data.events);
+
+    function mixFilter(){
+      let filterArray1 = textFilter(data.events, input.value);
+      let filterArray2 = filterChecks(filterArray1);
+      renderCardsPast(filterArray2,containerCards,data.currentDate);
+    }
+
+    containerChecks.addEventListener('change',mixFilter)
+    input.addEventListener('input',mixFilter)
+
+    
+  }
+  catch(error){
+    console.log(" error" + error);
+  }
+}
+
+
+
 //dato currendate
-let numberDate = data.currentDate;
+
 
 //renderiza las cards
-function renderCardsPast(arrayDatos,container) {
+function renderCardsPast(arrayDatos,container,date) {
   if(arrayDatos.length == 0){
       container.innerHTML = `<div class="containerNotFound" >
-                    <img src='../Img/no-result-found-icon.svg' alt='image not found'>
+                  <i class="bi bi-file-earmark-excel-fill"></i>
                   <h2 class='notFound'>RESULT NOT FOUND</h2>
                 </div>
           `
@@ -21,8 +64,8 @@ function renderCardsPast(arrayDatos,container) {
   }
   let cards = ''
   arrayDatos.forEach(element => {
-    if(element.date<numberDate){
-      cards += `<div class="card all ${element.category}" style="width: 18rem;" id="card_1">
+    if(element.date<date){
+      cards += `<div class="card all ${element.category}" style="width: 18rem;">
       <img src="${element.image}" class="card-img-top" alt="cinema">
       <div class="card-body">
         <h5 class="card-title">${element.name}</h5>
@@ -85,26 +128,24 @@ function filterChecks(arraydata){
     let filterArray = arraydata.filter(element => checkValues.includes(element.category));
     return filterArray;
   }
-  
-  
 
-//combina el search y checkbox
-function mixFilter(){
-  let filterArray1 = textFilter(data.events, input.value);
-  let filterArray2 = filterChecks(filterArray1);
-  renderCardsPast(filterArray2,containerCards);
+  //funciones para un boton que regrese arriba de todo
+btn_scroolTop.addEventListener('click',()=>{
+  window.scrollTo(0,0)
+})
+
+window.onscroll=()=>{
+  if(window.scrollY<1000){
+    btn_scroolTop.classList.remove('btn-scroolTop-on');
+  }else{
+    btn_scroolTop.classList.add('btn-scroolTop-on');
+  }
 }
 
+
 //activar funciones
-renderCardsPast(data.events,containerCards);
 
-renderChecks(data.events,containerChecks);
-
-filterChecks(data.events);
-
-containerChecks.addEventListener('change',mixFilter)
-input.addEventListener('input',mixFilter)
-
+getDatas()
 
 
 
